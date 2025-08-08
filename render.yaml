@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sentiment-dashboard
+    env: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.19.1
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        fromService:
+          type: envVarGroup
+          name: supabase-config
+          key: SUPABASE_URL
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        fromService:
+          type: envVarGroup
+          name: supabase-config  
+          key: SUPABASE_ANON_KEY
