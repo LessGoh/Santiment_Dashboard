@@ -8,9 +8,9 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 export interface SentimentData {
   topic: string
   time_bucket: string
-  positive_percentage: number
-  negative_percentage: number
-  neutral_percentage: number
+  positive: number
+  negative: number
+  neutral: number
   sentiment_score: number
   total_tweets: number
 }
