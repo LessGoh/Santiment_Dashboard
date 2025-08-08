@@ -52,7 +52,7 @@ export default function Home() {
   const fetchSentimentData = async (topic: string) => {
     try {
       const { data, error } = await supabase
-        .from('latest_sentiment')
+        .from('sentiment_metrics')
         .select('*')
         .eq('topic', topic)
         .order('time_bucket', { ascending: true })
