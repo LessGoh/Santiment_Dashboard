@@ -26,7 +26,7 @@ export default function Home() {
   const fetchData = async () => {
     try {
       const [sentimentResponse, summariesResponse] = await Promise.all([
-        supabase.from('latest_sentiment').select('*'),
+        supabase.from('sentiment_metrics').select('*'),
         supabase.from('daily_summaries').select('*')
       ])
 
