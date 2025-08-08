@@ -33,7 +33,7 @@ export default function Home() {
       if (sentimentResponse.error) throw sentimentResponse.error
       if (summariesResponse.error) throw summariesResponse.error
 
-      const uniqueTopics = [...new Set(sentimentResponse.data.map(item => item.topic))]
+      const uniqueTopics = [...new Set(sentimentResponse.data.map(item => item.topic.toLowerCase()))]
       setTopics(uniqueTopics)
       setSummaries(summariesResponse.data)
       console.log('Loaded summaries count:', summariesResponse.data?.length)
@@ -54,7 +54,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('sentiment_metrics')
         .select('*')
-        .eq('topic', topic)
+        .eq('topic', topic.toLowerCase())
         .order('time_bucket', { ascending: true })
 
       if (error) throw error
