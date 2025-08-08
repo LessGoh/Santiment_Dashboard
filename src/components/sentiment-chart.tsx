@@ -41,7 +41,7 @@ export function SentimentChart({ data }: SentimentChartProps) {
         <CardTitle>Анализ сентимента по времени</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[400px] w-full">
+        <ChartContainer config={chartConfig} className="min-h-[280px] w-full">
           <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis 
