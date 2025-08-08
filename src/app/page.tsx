@@ -58,6 +58,7 @@ export default function Home() {
         .order('time_bucket', { ascending: true })
 
       if (error) throw error
+      console.log('Sentiment data for', topic, ':', data)
       setSentimentData(data)
     } catch (error) {
       console.error('Error fetching sentiment data:', error)
